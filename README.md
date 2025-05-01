@@ -133,6 +133,8 @@ yarn test:cov
 
 ## Deployment
 
+### Traditional Deployment
+
 1. Build the application
 
 ```bash
@@ -144,6 +146,62 @@ yarn build
 
 ```bash
 pm2 start dist/main.js
+```
+
+### Docker Deployment
+
+#### Using Local Docker Compose
+
+1. Make sure your `.env` file contains your Telegram bot token
+2. Run the Docker setup:
+
+```bash
+./docker-start.sh
+```
+
+#### Using GitHub Container Registry
+
+This project is automatically built and published to GitHub Container Registry on every push to the main branch.
+
+1. Pull the latest image:
+
+```bash
+docker pull ghcr.io/YOUR_GITHUB_USERNAME/strangers-chat:latest
+```
+
+2. Create a docker-compose.yml file:
+
+```yaml
+version: '3.8'
+
+services:
+  app:
+    image: ghcr.io/YOUR_GITHUB_USERNAME/strangers-chat:latest
+    container_name: strangers-chat-bot
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - TELEGRAM_BOT_TOKEN=your_bot_token_here
+      - MONGODB_URI=mongodb://mongodb:27017/strangers-chat
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
+    driver: local
+```
+
+3. Run the containers:
+
+```bash
+docker-compose up -d
 ```
 
 ## License
