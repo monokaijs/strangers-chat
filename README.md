@@ -64,7 +64,7 @@ src/
 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/strangers-chat.git
+git clone https://github.com/monokaijs/strangers-chat.git
 cd strangers-chat
 ```
 
@@ -117,19 +117,6 @@ nest generate service new-feature
 
 2. Implement the feature in the created files
 3. Import the module in the app.module.ts file
-
-### Testing
-
-```bash
-# unit tests
-yarn test
-
-# e2e tests
-yarn test:e2e
-
-# test coverage
-yarn test:cov
-```
 
 ## Deployment
 
