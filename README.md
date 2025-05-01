@@ -2,6 +2,12 @@
 
 A Telegram bot for matching strangers and tunneling messages between them, built with NestJS, Telegraf, and MongoDB.
 
+## Demo
+
+[![Telegram Bot](https://img.shields.io/badge/Telegram-Bot-blue?logo=telegram)](https://t.me/chatwstrangers_bot)
+
+Try the bot in action: [@chatwstrangers_bot](https://t.me/chatwstrangers_bot)
+
 ## Features
 
 - User registration and management
@@ -153,7 +159,7 @@ This project is automatically built and published to GitHub Container Registry o
 1. Pull the latest image:
 
 ```bash
-docker pull ghcr.io/YOUR_GITHUB_USERNAME/strangers-chat:latest
+docker pull ghcr.io/monokaijs/strangers-chat:latest
 ```
 
 2. Create a docker-compose.yml file:
@@ -163,7 +169,7 @@ version: '3.8'
 
 services:
   app:
-    image: ghcr.io/YOUR_GITHUB_USERNAME/strangers-chat:latest
+    image: ghcr.io/monokaijs/strangers-chat:latest
     container_name: strangers-chat-bot
     restart: always
     environment:
@@ -190,6 +196,19 @@ volumes:
 ```bash
 docker-compose up -d
 ```
+
+## Live Demo
+
+A live demo of this project is available on Telegram: [@chatwstrangers_bot](https://t.me/chatwstrangers_bot)
+
+The demo is hosted on a cloud server using Docker containers and is automatically updated whenever changes are pushed to the main branch.
+
+To try it out:
+1. Open Telegram and search for @chatwstrangers_bot
+2. Start a chat with the bot by clicking the Start button
+3. Use the /find command to be matched with another user
+4. Chat with your matched partner
+5. Use /stop to end the conversation
 
 ## License
 
